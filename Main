@@ -1,0 +1,41 @@
+//JONATHAN PUHUEYESTEWA RAMIREZ
+
+
+
+package com.cursosonline;
+
+import com.cursosonline.dao.CursoDAOimpl;
+import com.cursosonline.dao.CursoDao;
+import com.cursosonline.entidades.Curso;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
+
+/**
+ *
+ * @author Administrador
+ */
+public class Main {
+   
+       static String url="jdbc:postgresql://localhost/CursosOnline";
+       static String user="postgres";
+       static String password="1234";
+ 
+     public static void main(String[] args) {
+         
+         CursoDao cursoDao = new CursoDAOimpl();
+         Curso newCurso = new Curso(3,"modificado curso de java");
+         //cursoDao.ingresar(newCurso);
+         //cursoDao.actualizar(newCurso);
+         cursoDao.eliminar(3);
+         
+         
+         List<Curso> cursos = cursoDao.getCursos();
+         System.out.println(cursos);
+         
+         }
+         }
